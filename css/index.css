@@ -23,13 +23,13 @@ h1 {
     font-family: 'Stylish';
     width: 320px;
     background: rgba(255,255,255,0.8);
-    padding: 10px 50px;
+    padding: 10px 50px; text-align: center;
 }
 #menu li {
     display:inline-block;  padding-right: 20px;
-    font-size: 20px; font-weight: bold; color: #313131; text-align: center;
+    font-size: 20px; font-weight: bold; color: #313131; 
 }
-#menu li:nth-child(5) { padding-right: 0; }
+#menu li:nth-child(4) { padding-right: 0; }
 
 #menu li:nth-child(1):hover a { color: #557c00; }
 #menu li:nth-child(2):hover a { color: #0068b7; }    
@@ -78,31 +78,35 @@ article p {
 .article2 span { color: #0068b7; }
 .article3 span { color: #f39800; }
 .article4 span { color: #a0a0a0; }
+.article4 i { color: #eb6877; }
 
 /* gallery */
-.gallbox {
-    padding-top: 30%;
-    position: absolute; top: 0; right: 100px;    
-    
+
+.gallery {
+    padding-top: 15%;
+    position: absolute;
+    top: 0; right: -800px;
+    overflow: hidden;    
+    transition: all 0.4s;    
 }
-.gallbox .gallery li {
+.gallery li {
     max-width: 320px; max-height: 100px;
-    overflow: hidden;
-    margin-bottom: 30px;
-    
+    overflow: hidden;    
+    margin-bottom: 30px;    
 }
-.gallbox .gallery li > div  { overflow:hidden; position:relative;}
-.gallbox .gallery li > div::before {
-    content: ''; position: absolute;
+.gallery li > div  { overflow:hidden; position:relative;}
+.gallery li > div::before {
+    content: '';
+    position: absolute;
     top: 0; left: 0; bottom: 0; right: 0;
     background: rgba(255,255,255,0.2);
     opacity: 1; transition: all 0.4s;
 }
-.gallbox .gallery li > div:hover::before {
-    opacity: 0; z-index:9;
-}
-.gallbox .gallery li img { transition:all 0.5s; }
-.gallbox .gallery li > div:hover > img { transform:scale(1.2); }
+.gallery li > div:hover::before { opacity: 0; z-index:9; }
+.gallery li img { transition: all 0.5s; }
+.gallery li > div:hover > img { transform:scale(1.2); }
+
+.gallery li:hover {border: 1px solid #fff;}
 
 .img1 li:nth-child(1) img {margin-top: -27%; }
 .img1 li:nth-child(2) img {margin-top: -90%; }
@@ -119,3 +123,36 @@ article p {
 .img4 li:nth-child(1) img {margin-top: -40%; }
 .img4 li:nth-child(2) img {margin-top: -20%; }
 .img4 li:nth-child(3) img {margin-top: -30%; margin-bottom: 0;}
+
+.bnt {
+    position: absolute;
+    bottom: 50px; right: 100px;
+    color: #fff;
+    font-size: 40px; text-align: center;
+}
+.bnt p {
+    font-size: 10px; color: #000; font-weight: bold;
+    position: absolute;
+    top: 24px; left: 14px;
+}
+.bnt {
+    
+    animation: ani 1.5s infinite linear;
+}
+@keyframes ani {
+    0% { 
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.gallbox:hover {
+    cursor: pointer;
+}
+
+/* .gallbox:hover .bnt { display: none; } */
